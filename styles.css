@@ -20,9 +20,27 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background: rgb(30, 30, 30);
+  /* background: rgb(30, 30, 30); */
   color: rgb(200, 200, 200);
   margin: 0;
+  background: linear-gradient(
+    270deg,
+    #1e1e1e,
+    #333
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 h1,
@@ -59,8 +77,17 @@ h6 {
 .hero-content {
   position: relative;
   z-index: 2;
-  transform: translate(200px);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.2s ease forwards;
 }
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-content h1 {
   font-size: var(--sizeh1);
   margin-bottom: 0.4rem;
@@ -95,7 +122,7 @@ h6 {
     font-family: "Inter", sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    background: rgb(30, 30, 30);
+    /* background: rgb(30, 30, 30); */
     color: rgb(200, 200, 200);
     margin: 0;
   }
@@ -136,8 +163,11 @@ h6 {
   .hero-content {
     position: relative;
     z-index: 2;
-    transform: none;
+    /* background-color: blue; */
+    /* transform: translateY(30px);
+    animation: fadeUp 1.2s ease forwards; */
   }
+
   .hero-content h1 {
     font-size: var(--sizeh1);
     margin-bottom: 0.4rem;
@@ -159,10 +189,15 @@ h6 {
   }
 }
 
+@keyframes fadeUpAbout {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 .about {
   width: 100%;
   padding: 80px 20px;
   text-align: center;
+  animation: fadeUpAbout 1s both;
 }
 
 .about h2 {
@@ -204,7 +239,7 @@ h6 {
 
 .projects {
   padding: 40px;
-  background: rgb(30, 30, 30);
+  /* background: rgb(30, 30, 30); */
 }
 
 .projects h2 {
